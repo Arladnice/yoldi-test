@@ -1,0 +1,51 @@
+@import '../../styles/vars';
+@import '../../styles/mixins';
+
+.loader {
+  /* stylelint-disable-next-line selector-class-pattern */
+  &.type-page {
+    position: relative;
+    display: block;
+    flex: 1 1 100%;
+    width: 100%;
+    min-height: inherit;
+    height: 100%;
+    @include loader($border-width: 5px, $size: 60px, $color: $gray);
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  &.type-section {
+    position: relative;
+    display: block;
+    height: 80px;
+    width: 100%;
+    @include loader($border-width: 5px, $size: 60px, $color: $gray);
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  &.type-overlay {
+    z-index: 9999999;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    @include loader($border-width: 5px, $size: 60px, $color: $gray);
+    margin-top: 0;
+    opacity: 1;
+    transition: opacity 200ms ease, margin-top 0ms linear 0s;
+
+    &.hidden {
+      margin-top: -100vh;
+      opacity: 0;
+      transition: opacity 200ms ease, margin-top 0ms linear 200ms;
+    }
+  }
+}

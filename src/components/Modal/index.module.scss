@@ -1,0 +1,11 @@
+@import '../../styles/vars';
+@import '../../styles/mixins';
+
+.content {
+  flex: 1 1 100%;
+  padding: 30px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+  align-items: stretch;
+}

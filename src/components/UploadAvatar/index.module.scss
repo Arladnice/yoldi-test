@@ -1,0 +1,55 @@
+@import '../../styles/mixins';
+@import '../../styles/vars';
+
+.uploadAvatar {
+  position: relative;
+
+  .fileInput {
+    display: none;
+  }
+
+  .button {
+    cursor: pointer;
+    position: absolute;
+    z-index: 40;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: $txt-color;
+    padding: 0;
+    border: none;
+  }
+
+  .loader {
+    z-index: 50;
+    display: none;
+    background-color: $txt-color;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include loader($border-width: 5px, $size: 60px, $color: $gray);
+  }
+
+  &:hover {
+    .button {
+      display: flex;
+    }
+  }
+
+  &.loading {
+    .button {
+      display: none;
+    }
+
+    .loader {
+      display: block;
+    }
+  }
+}
